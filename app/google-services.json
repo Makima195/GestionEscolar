@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "931686406595",
+    "project_id": "gestionescolar-fa82c",
+    "storage_bucket": "gestionescolar-fa82c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:931686406595:android:2e17a0135b2ca47f610576",
+        "android_client_info": {
+          "package_name": "com.gymicompany.gestionescolar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAu7nVj5u1jz818NoA-c1w1E4MDkGcbkHc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
