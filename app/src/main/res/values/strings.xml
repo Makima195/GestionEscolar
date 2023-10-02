@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GestionEscolar</string>
+    <string name="button_inciar_sesion">INICIAR SESION</string>
+    <string name="button_register">REGISTRARSE</string>
 </resources>

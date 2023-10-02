@@ -7,23 +7,16 @@ import android.content.Intent;
 import android.view.View;
 
 
-
-public class ReceptionActivity extends AppCompatActivity {
+public class IniciarSesionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reception);
+        setContentView(R.layout.activity_iniciar_sesion);
     }
 
-    //metodo de botones
-
-
-    public void Iniciar_sesion (View view){
-        Intent i = new Intent(this, IniciarSesionActivity.class);
+    public void Volver_recepcion (View view){
+        Intent i = new Intent(this, ReceptionActivity.class);
         startActivity(i);
-        //overridePendingTransition(R.anim.zoom_back_in, R.anim.zoom_back_out);
     }
-
-
 }

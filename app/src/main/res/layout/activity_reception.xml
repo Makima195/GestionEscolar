@@ -23,7 +23,8 @@
         android:layout_width="270dp"
         android:layout_height="50dp"
         android:background="@drawable/boton_redondo"
-        android:text="INICIAR SESION"
+        android:onClick="Iniciar_sesion"
+        android:text="@string/button_inciar_sesion"
         app:layout_constraintBottom_toBottomOf="@+id/fondoapp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -36,14 +37,14 @@
         android:layout_width="270dp"
         android:layout_height="50dp"
         android:background="@drawable/boton_redondo"
-        android:text="REGISTRARSE"
+        android:text="@string/button_register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView_mitlogo" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imageView_mitlogo"
         android:layout_width="350dp"
         android:layout_height="205dp"
         app:layout_constraintBottom_toTopOf="@+id/button_iniciarsesion"
