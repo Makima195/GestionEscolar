@@ -25,5 +25,11 @@ public class ReceptionActivity extends AppCompatActivity {
         //overridePendingTransition(R.anim.zoom_back_in, R.anim.zoom_back_out);
     }
 
+    public void Register (View view){
+        Intent i = new Intent(this, register.class);
+        startActivity(i);
+        //overridePendingTransition(R.anim.zoom_back_in, R.anim.zoom_back_out);
+    }
+
 
 }
