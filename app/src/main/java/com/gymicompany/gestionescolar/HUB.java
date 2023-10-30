@@ -15,7 +15,7 @@ public class HUB extends AppCompatActivity {
 
     ImageButton btn1, btn2, btn3, btn4, btn5, btn6, btn7;
 
-    private TextView dateTimeTextView;
+    //private TextView dateTimeTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,21 +29,21 @@ public class HUB extends AppCompatActivity {
         btn6 = findViewById(R.id.documentos);
         btn7 = findViewById(R.id.notas);
 
-        dateTimeTextView = findViewById(R.id.fechaYhora);
+        //dateTimeTextView = findViewById(R.id.fechaYhora);
 
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        String dateTime = dateFormat.format(new Date());
+        //SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        //String dateTime = dateFormat.format(new Date());
 
 
-        dateTimeTextView.setText("Fecha y hora: " + dateTime);
+        //dateTimeTextView.setText("Fecha y hora: " + dateTime);
 
         ImageButton btn2 = findViewById(R.id.ajustes);
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Código para navegar a la nueva vista
-                Intent intent = new Intent(HUB.this, ajustes.class);
+                Intent intent = new Intent(HUB.this, AjustesActivity.class);
                 startActivity(intent);
             }
         });

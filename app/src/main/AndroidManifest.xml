@@ -13,7 +13,10 @@
         android:theme="@style/Theme.GestionEscolar"
         tools:targetApi="31">
         <activity
-            android:name=".Hubprueba"
+            android:name=".AjustesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HubAlumnos"
             android:exported="false" />
         <activity
             android:name=".register"
