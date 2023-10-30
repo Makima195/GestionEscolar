@@ -10,6 +10,12 @@ import android.view.View;
 
 public class ReceptionActivity extends AppCompatActivity {
 
+    public void Volver_recepcion (View view){
+        Intent i = new Intent(this, HubAlumnos.class);
+        startActivity(i);
+        finish();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
