@@ -8,7 +8,10 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class HubDocente extends AppCompatActivity {
-
+    public void Menuhub (View view){
+        Intent i = new Intent(this, anuncios.class);
+        startActivity(i);
+    }
     ImageButton bt_horario, bt_notas, bt_noticias, bt_avisos, bt_ajustes;
 
     @Override
@@ -22,6 +25,14 @@ public class HubDocente extends AppCompatActivity {
         bt_avisos = findViewById(R.id.avisos);
         bt_ajustes = findViewById(R.id.ajustes);
 
+        bt_avisos.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startActivity(new Intent(HubDocente.this, anuncios.class));
+            }
+        });
+    }
+}
+
         /*bt_ajustes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -31,5 +42,3 @@ public class HubDocente extends AppCompatActivity {
             }
         });*/
         //despues mas botones
-    }
-}

@@ -16,6 +16,9 @@
             android:name=".crear_anuncios"
             android:exported="true" />
         <activity
+            android:name=".HubDocente"
+            android:exported="true" />
+        <activity
             android:name=".anuncios"
             android:exported="true" />
         <activity
