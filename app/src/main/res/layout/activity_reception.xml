@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="#4A3636"
+    tools:context=".ReceptionActivity">
+
+    <ImageView
+        android:id="@+id/fondoapp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fondoapp" />
+
+    <Button
+        android:id="@+id/button_iniciarsesion"
+        android:layout_width="270dp"
+        android:layout_height="50dp"
+        android:background="@drawable/boton_redondo"
+        android:onClick="Iniciar_sesion"
+        android:text="@string/button_inciar_sesion"
+        app:layout_constraintBottom_toBottomOf="@+id/fondoapp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/fondoapp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.616" />
+
+    <Button
+        android:id="@+id/button_registro"
+        android:layout_width="270dp"
+        android:layout_height="50dp"
+        android:background="@drawable/boton_redondo"
+        android:onClick="Register"
+        android:text="@string/button_register"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_mitlogo" />
+
+    <ImageView
+        android:id="@+id/imageView_mitlogo"
+        android:layout_width="350dp"
+        android:layout_height="205dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_iniciarsesion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/mitlogo" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
