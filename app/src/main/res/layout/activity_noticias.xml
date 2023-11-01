@@ -19,7 +19,7 @@
 
         <View
             android:id="@+id/colorView"
-            android:layout_width="420dp"
+            android:layout_width="500dp"
             android:layout_height="60dp"
             android:background="@color/red" />
 
