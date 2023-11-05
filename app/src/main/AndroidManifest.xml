@@ -19,11 +19,23 @@
             android:name=".HubAlumnos"
             android:exported="false" />
         <activity
+            android:name=".HubDocente"
+            android:exported="true" />
+        <activity
             android:name=".register"
             android:exported="false" />
         <activity
+            android:name=".redactarAviso"
+            android:exported="true" />
+        <activity
+            android:name=".avisosDocentes"
+            android:exported="true" />
+        <activity
             android:name=".IniciarSesionActivity"
             android:exported="false" />
+        <activity
+            android:name=".anuncios"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
