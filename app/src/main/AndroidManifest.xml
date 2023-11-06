@@ -31,6 +31,12 @@
             android:name=".IniciarSesionActivity"
             android:exported="false" />
         <activity
+            android:name=".anuncios"
+            android:exported="true" />
+        <activity
+            android:name=".crear_anuncios"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
