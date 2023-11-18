@@ -25,7 +25,7 @@ import java.util.Map;
 public class register extends AppCompatActivity {
 
     Button btn_register;
-    EditText name, email, password;
+    EditText name, email, password, perfil, anuncio_general;
     FirebaseFirestore mFirestore;
     FirebaseAuth mAuth;
     @Override
@@ -40,6 +40,10 @@ public class register extends AppCompatActivity {
         email = findViewById(R.id.correo);
         password = findViewById(R.id.contrasena);
         btn_register = findViewById(R.id.btn_registro);
+        perfil = findViewById(R.id.perfil);
+        anuncio_general = findViewById(R.id.anuncio_general);
+
+
 
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,18 +51,20 @@ public class register extends AppCompatActivity {
                 String nameUser = name.getText().toString().trim();
                 String emailUser = email.getText().toString().trim();
                 String passUser = password.getText().toString().trim();
+                String perfilUser = perfil.getText().toString().trim();
+                String anuncioUser = anuncio_general.getText().toString().trim();
 
                 if(nameUser.isEmpty() && emailUser.isEmpty() && passUser.isEmpty()){
                     Toast.makeText(register.this, "Complete los datos", Toast.LENGTH_SHORT).show();
                 }else{
-                    registerUser(nameUser,emailUser,passUser);
+                    registerUser(nameUser,emailUser,passUser,perfilUser,anuncioUser);
                 }
 
             }
         });
     }
 
-    private void registerUser(String nameUser, String emailUser, String passUser) {
+    private void registerUser(String nameUser, String emailUser, String passUser, String perfilUser, String anuncioUser) {
         mAuth.createUserWithEmailAndPassword(emailUser, passUser).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -69,6 +75,8 @@ public class register extends AppCompatActivity {
                 map.put("name", nameUser);
                 map.put("email", emailUser);
                 map.put("password", passUser);
+                map.put("perfil", perfilUser);
+                map.put("anuncio_general", anuncioUser);
 
                 mFirestore.collection("user").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

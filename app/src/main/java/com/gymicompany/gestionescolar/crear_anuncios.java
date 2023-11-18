@@ -9,24 +9,28 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
+
 
 
 public class crear_anuncios extends AppCompatActivity {
     Button btn_crear;
     EditText titulo, anuncio;
-    private DatabaseReference mDatabase;
-
+    private FirebaseFirestore mFireStore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_anuncios);
 
         this.setTitle("Crear anuncios");
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mFireStore = FirebaseFirestore.getInstance();
+
 
         btn_crear = findViewById(R.id.btn_subir_aviso);
         titulo = findViewById(R.id.titulo);
@@ -38,33 +42,35 @@ public class crear_anuncios extends AppCompatActivity {
                 String tituloAnuncio = titulo.getText().toString().trim();
                 String textoAnuncio = anuncio.getText().toString().trim();
 
-                if (tituloAnuncio.isEmpty() || textoAnuncio.isEmpty()) {
+                if (tituloAnuncio.isEmpty() || textoAnuncio.isEmpty()){
                     Toast.makeText(getApplicationContext(), "Ingrese correctamente los datos", Toast.LENGTH_SHORT).show();
-                } else {
+                }else{
                     postAnuncio(tituloAnuncio, textoAnuncio);
                 }
+
             }
         });
+
+
     }
 
     private void postAnuncio(String tituloAnuncio, String textoAnuncio) {
-        // Crear una referencia a un nodo específico donde se almacenarán los anuncios
-        DatabaseReference anunciosRef = mDatabase.child("anuncios").push();
-
-        // Crea un objeto Anuncio para almacenar los datos
-        anuncios nuevoAnuncio = new anuncios();
-
-        // Agrega el nuevo anuncio a la base de datos
-        anunciosRef.setValue(nuevoAnuncio).addOnCompleteListener(new OnCompleteListener<Void>() {
+        mFireStore = FirebaseFirestore.getInstance();
+        Map<String, Object> map = new HashMap<>();
+        map.put("Titulo", tituloAnuncio);
+        map.put("Anuncio", textoAnuncio);
+        mFireStore.collection("anuncios").add(map).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    Toast.makeText(getApplicationContext(), "Anuncio creado exitosamente", Toast.LENGTH_SHORT).show();
-                    finish();
-                } else {
-                    Toast.makeText(getApplicationContext(), "Error al crear el anuncio", Toast.LENGTH_SHORT).show();
-                }
+            public void onSuccess(DocumentReference documentReference) {
+                Toast.makeText(getApplicationContext(), "Creado exitosamente", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getApplicationContext(), "Error al crear anuncio", Toast.LENGTH_SHORT).show();
             }
         });
     }
+
 }

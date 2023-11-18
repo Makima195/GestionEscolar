@@ -45,7 +45,11 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-database")
+<<<<<<< Updated upstream
     implementation("com.google.firebase:firebase-firestore:24.9.1")
     implementation("com.firebaseui:firebase-ui-firestore:9.1.0")
     implementation("com.google.firebase:firebase-storage:20.3.0")
+=======
+    implementation("com.google.firebase:firebase-firestore")
+>>>>>>> Stashed changes
 }

@@ -13,8 +13,16 @@
         android:theme="@style/Theme.GestionEscolar"
         tools:targetApi="31">
         <activity
+<<<<<<< Updated upstream
             android:name=".HorarioActivity"
             android:exported="false" />
+=======
+            android:name=".VerAnuncio"
+            android:exported="false" />
+        <activity
+            android:name=".crear_anuncios"
+            android:exported="true" />
+>>>>>>> Stashed changes
         <activity
             android:name=".HubDocente"
             android:exported="true" />
