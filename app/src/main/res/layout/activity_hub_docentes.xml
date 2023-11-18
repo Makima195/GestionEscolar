@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".hub_docentes">
 
     <ImageView
         android:id="@+id/fondo"
@@ -97,6 +98,5 @@
         app:layout_constraintVertical_bias="0.024"
         app:srcCompat="@drawable/ajustes"
         android:contentDescription="Botón acceder a ajustes"/>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
