@@ -14,6 +14,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+
 public class crear_anuncios extends AppCompatActivity {
     Button btn_crear;
     EditText titulo, anuncio;
@@ -27,9 +28,9 @@ public class crear_anuncios extends AppCompatActivity {
         this.setTitle("Crear anuncios");
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        btn_crear = findViewById(R.id.btn_crear);
+        btn_crear = findViewById(R.id.btn_subir_aviso);
         titulo = findViewById(R.id.titulo);
-        anuncio = findViewById(R.id.anuncio);
+        anuncio = findViewById(R.id.aviso);
 
         btn_crear.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace = "com.gymicompany.gestionescolar"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.gymicompany.gestionescolar"
         minSdk = 27
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -44,8 +44,8 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-auth")
-
     implementation("com.google.firebase:firebase-database")
     implementation("com.google.firebase:firebase-firestore:24.9.1")
     implementation("com.firebaseui:firebase-ui-firestore:9.1.0")
+    implementation("com.google.firebase:firebase-storage:20.3.0")
 }
