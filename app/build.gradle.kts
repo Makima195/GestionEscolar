@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace = "com.gymicompany.gestionescolar"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.gymicompany.gestionescolar"
         minSdk = 27
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
