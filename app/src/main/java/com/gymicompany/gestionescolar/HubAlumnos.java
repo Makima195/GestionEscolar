@@ -19,20 +19,21 @@ public class HubAlumnos extends AppCompatActivity {
         Intent i = new Intent(this, AjustesActivity.class);
         startActivity(i);
     }
-    ImageButton buttonajustes;
+    ImageButton buttonajustes, buttonhorario;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hub_alumnos);
 
+        //crea la existencia de los botones para usarse
+
         buttonajustes = findViewById(R.id.buttonajustes);
+        buttonhorario = findViewById(R.id.buttonhorario);
 
-        buttonajustes.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View v) {
-                startActivity(new Intent(HubAlumnos.this, AjustesActivity.class));
-            }
-        });
+        //hacia donde te redirigen los botones "ajustes"
+        buttonajustes.setOnClickListener(v -> startActivity(new Intent(HubAlumnos.this, AjustesActivity.class)));
+        //hacia donde te redirigen los botones "horarios"
+        buttonhorario.setOnClickListener(v -> startActivity(new Intent(HubAlumnos.this, HorarioActivity.class)));
     }
 
     @Override
