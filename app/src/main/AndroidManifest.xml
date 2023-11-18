@@ -13,18 +13,13 @@
         android:theme="@style/Theme.GestionEscolar"
         tools:targetApi="31">
         <activity
-<<<<<<< Updated upstream
             android:name=".HorarioActivity"
             android:exported="false" />
-=======
+        <activity
             android:name=".VerAnuncio"
             android:exported="false" />
         <activity
             android:name=".crear_anuncios"
-            android:exported="true" />
->>>>>>> Stashed changes
-        <activity
-            android:name=".HubDocente"
             android:exported="true" />
         <activity
             android:name=".anuncios"
@@ -45,16 +40,10 @@
             android:name=".register"
             android:exported="false" />
         <activity
+            android:name=".redactarAviso"
+            android:exported="true" />
+        <activity
             android:name=".IniciarSesionActivity"
-            android:exported="false" />
-        <activity
-            android:name=".anuncios"
-            android:exported="true" />
-        <activity
-            android:name=".crear_anuncios"
-            android:exported="true" />
-        <activity
-            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".ReceptionActivity"
