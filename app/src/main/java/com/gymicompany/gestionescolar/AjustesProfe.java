@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
-public class AjustesActivity extends AppCompatActivity {
+public class AjustesProfe extends AppCompatActivity {
 
     public void Menuhub (View view){
         Intent i = new Intent(this, AjustesActivity.class);
@@ -35,14 +35,14 @@ public class AjustesActivity extends AppCompatActivity {
         buttoncerrarsesion.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                startActivity(new Intent(AjustesActivity.this, ReceptionActivity.class));
+                startActivity(new Intent(AjustesProfe.this, ReceptionActivity.class));
             }
         });
 
         buttonback.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                startActivity(new Intent(AjustesActivity.this, HubAlumnos.class));
+                startActivity(new Intent(AjustesProfe.this, hub_docentes.class));
             }
         });
 
