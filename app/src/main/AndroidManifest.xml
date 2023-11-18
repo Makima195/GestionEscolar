@@ -28,9 +28,6 @@
             android:name=".redactarAviso"
             android:exported="true" />
         <activity
-            android:name=".avisosDocentes"
-            android:exported="true" />
-        <activity
             android:name=".IniciarSesionActivity"
             android:exported="false" />
         <activity
