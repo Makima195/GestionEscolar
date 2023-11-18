@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/titulo"
+            android:id="@+id/titulo_general"
             android:layout_width="match_parent"
             android:layout_height="62dp"
             android:ems="10"
@@ -43,7 +43,7 @@
             android:textColorLink="@color/white" />
 
         <EditText
-            android:id="@+id/aviso"
+            android:id="@+id/anuncio_crear_general"
             android:layout_width="match_parent"
             android:layout_height="74dp"
             android:ems="10"
