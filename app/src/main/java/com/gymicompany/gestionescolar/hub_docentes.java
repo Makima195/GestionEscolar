@@ -13,7 +13,7 @@ public class hub_docentes extends AppCompatActivity {
         Intent i = new Intent(this, AjustesActivity.class);
         startActivity(i);
     }
-    ImageButton buttonajustes;
+    ImageButton buttonajustes, buttonAnuncioGeneral;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +21,7 @@ public class hub_docentes extends AppCompatActivity {
         setContentView(R.layout.activity_hub_docentes);
 
         buttonajustes = findViewById(R.id.ajustes);
+        buttonAnuncioGeneral = findViewById(R.id.noticias);
 
         buttonajustes.setOnClickListener(new View.OnClickListener() {
 
@@ -28,6 +29,8 @@ public class hub_docentes extends AppCompatActivity {
                 startActivity(new Intent(hub_docentes.this, AjustesProfe.class));
             }
         });
+
+
 
     }
 

@@ -13,6 +13,12 @@
         android:theme="@style/Theme.GestionEscolar"
         tools:targetApi="31">
         <activity
+            android:name=".AnuncioGeneralAlumno"
+            android:exported="false" />
+        <activity
+            android:name=".AnuncioGeneral"
+            android:exported="false" />
+        <activity
             android:name=".HorarioActivity"
             android:exported="false" />
         <activity

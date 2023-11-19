@@ -23,7 +23,7 @@
         app:srcCompat="@drawable/fondoapp" />
 
     <ImageButton
-        android:id="@+id/buttonhorario"
+        android:id="@+id/buttonnotas"
         android:layout_width="131dp"
         android:layout_height="136dp"
         android:background="#00000000"
@@ -36,7 +36,7 @@
         app:layout_constraintVertical_bias="0.257" />
 
     <ImageButton
-        android:id="@+id/imageButton5"
+        android:id="@+id/buttonhorario"
         android:layout_width="127dp"
         android:layout_height="137dp"
         android:background="#00000000"
