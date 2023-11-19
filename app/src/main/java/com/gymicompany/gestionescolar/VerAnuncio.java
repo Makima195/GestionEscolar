@@ -42,10 +42,10 @@ public class VerAnuncio extends AppCompatActivity {
                         db.collection("anuncios")
                                 .document(pruebacurso)
                                 .get()
-                                .addOnSuccessListener(documentSnapshotanuncio -> {
-                                    if (documentSnapshotanuncio.exists()) {
-                                        Titulo.setText(documentSnapshotanuncio.getString("Titulo"));
-                                        Anuncio.setText(documentSnapshotanuncio.getString("Anuncio"));
+                                .addOnSuccessListener(documentSnapshotanuncios -> {
+                                    if (documentSnapshotanuncios.exists()) {
+                                        Titulo.setText(documentSnapshotanuncios.getString("Titulo"));
+                                        Anuncio.setText(documentSnapshotanuncios.getString("Anuncio"));
                                         //EJEMPLO DE OTROS DIAS TODO PUEDE ESTAR JUNTO
                                         //martesbloque2.setText(documentSnapshotHorario.getString("bloque2"));
                                         // Puedes continuar con el resto de los bloques o datos aquí.
