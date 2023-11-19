@@ -25,7 +25,7 @@ import java.util.Map;
 public class register extends AppCompatActivity {
 
     Button btn_register;
-    EditText name, email, password;
+    EditText name, email, password, perfil, anuncio_general, aviso;
     FirebaseFirestore mFirestore;
     FirebaseAuth mAuth;
     @Override
@@ -40,6 +40,11 @@ public class register extends AppCompatActivity {
         email = findViewById(R.id.correo);
         password = findViewById(R.id.contrasena);
         btn_register = findViewById(R.id.btn_registro);
+        perfil = findViewById(R.id.perfil);
+        anuncio_general = findViewById(R.id.anuncio_general);
+        aviso = findViewById(R.id.aviso);
+
+
 
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,18 +52,21 @@ public class register extends AppCompatActivity {
                 String nameUser = name.getText().toString().trim();
                 String emailUser = email.getText().toString().trim();
                 String passUser = password.getText().toString().trim();
+                String perfilUser = perfil.getText().toString().trim();
+                String anuncioUser = anuncio_general.getText().toString().trim();
+                String avisoUser = aviso.getText().toString().trim();
 
                 if(nameUser.isEmpty() && emailUser.isEmpty() && passUser.isEmpty()){
                     Toast.makeText(register.this, "Complete los datos", Toast.LENGTH_SHORT).show();
                 }else{
-                    registerUser(nameUser,emailUser,passUser);
+                    registerUser(nameUser,emailUser,passUser,perfilUser,anuncioUser,avisoUser);
                 }
 
             }
         });
     }
 
-    private void registerUser(String nameUser, String emailUser, String passUser) {
+    private void registerUser(String nameUser, String emailUser, String passUser, String perfilUser, String anuncioUser, String avisoUser) {
         mAuth.createUserWithEmailAndPassword(emailUser, passUser).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -69,12 +77,15 @@ public class register extends AppCompatActivity {
                 map.put("name", nameUser);
                 map.put("email", emailUser);
                 map.put("password", passUser);
+                map.put("perfil", perfilUser);
+                map.put("anuncio_general", anuncioUser);
+                map.put("aviso",avisoUser);
 
                 mFirestore.collection("user").document(id).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
                         finish();
-                        startActivity(new Intent(register.this, MainActivity.class));
+                        startActivity(new Intent(register.this, ReceptionActivity.class));
                         Toast.makeText(register.this, "Usuario registrado con éxito", Toast.LENGTH_SHORT).show();
                     }
                 }).addOnFailureListener(new OnFailureListener() {

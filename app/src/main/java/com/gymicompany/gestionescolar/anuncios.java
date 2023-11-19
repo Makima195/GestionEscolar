@@ -10,8 +10,6 @@ import android.widget.Button;
 
 public class anuncios extends AppCompatActivity {
     Button btn_ir_crear_notas;
-    RecyclerView mRecycler;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

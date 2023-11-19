@@ -62,7 +62,7 @@
         app:layout_constraintVertical_bias="0.53" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/button_ver_anuncio_general"
         android:layout_width="128dp"
         android:layout_height="138dp"
         android:background="#00000000"

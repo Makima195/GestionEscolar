@@ -117,10 +117,13 @@ public class IniciarSesionActivity extends AppCompatActivity {
                                 // Redirige a la pantalla de administrador
                                 Toast.makeText(IniciarSesionActivity.this, "Bienvenido Alumno", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(IniciarSesionActivity.this, HubAlumnos.class));
-                            } else {
+                            } else if ("profesor".equals(tipoUsuario)) {
                                 // Redirige a la pantalla de usuario normal
                                 Toast.makeText(IniciarSesionActivity.this, "Bienvenido profesor", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(IniciarSesionActivity.this, hub_docentes.class));
+                            } else if ("administrador".equals(tipoUsuario)) {
+                                Toast.makeText(IniciarSesionActivity.this, "Bienvenido administrador", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(IniciarSesionActivity.this, anuncios.class));
                             }
                         }
                     }
