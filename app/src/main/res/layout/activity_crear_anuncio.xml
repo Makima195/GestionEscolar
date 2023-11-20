@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".redactarAviso">
+    tools:context=".crear_anuncios">
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -17,6 +17,7 @@
         app:srcCompat="@drawable/background" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="16dp"
@@ -24,27 +25,34 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:orientation="vertical"
-        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/titulo"
+            android:id="@+id/titulo_general"
             android:layout_width="match_parent"
             android:layout_height="62dp"
             android:ems="10"
             android:hint="Titulo"
-            android:inputType="text" />
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:textColorHighlight="@color/white"
+            android:textColorHint="@color/white"
+            android:textColorLink="@color/white" />
 
         <EditText
-            android:id="@+id/aviso"
+            android:id="@+id/anuncio_crear_general"
             android:layout_width="match_parent"
             android:layout_height="74dp"
             android:ems="10"
-            android:hint="Aviso"
-            android:inputType="text" />
+            android:hint="Anuncio"
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:textColorHighlight="@color/white"
+            android:textColorHint="@color/white"
+            android:textColorLink="@color/white" />
 
         <Space
             android:layout_width="match_parent"
@@ -54,7 +62,8 @@
             android:id="@+id/btn_subir_aviso"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Subir Aviso" />
+            android:text="Crear anuncio" />
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

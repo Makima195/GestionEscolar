@@ -55,8 +55,6 @@ public class IniciarSesionActivity extends AppCompatActivity {
 
         buttonIniciarSesion.setOnClickListener(new View.OnClickListener() {
 
-
-
             public void onClick(View v) {
                 String username = correoeditText.getText().toString();
                 String password = contraseñaeditText.getText().toString();
@@ -80,8 +78,6 @@ public class IniciarSesionActivity extends AppCompatActivity {
             });
     }
 
-
-
     private void loginUser(String username, String password){
         mAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -95,10 +91,7 @@ public class IniciarSesionActivity extends AppCompatActivity {
             }
         }).addOnFailureListener(e -> Toast.makeText(IniciarSesionActivity.this, "error de sesion", Toast.LENGTH_SHORT).show());
 
-
-
-
-        }
+    }
 
     private void redirigirUsuario() {
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -111,16 +104,18 @@ public class IniciarSesionActivity extends AppCompatActivity {
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         if (documentSnapshot.exists()) {
                             String tipoUsuario = documentSnapshot.getString("perfil");
-
                             // Redirige al usuario según el valor del campo
                             if ("alumno".equals(tipoUsuario)) {
                                 // Redirige a la pantalla de administrador
                                 Toast.makeText(IniciarSesionActivity.this, "Bienvenido Alumno", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(IniciarSesionActivity.this, HubAlumnos.class));
-                            } else {
+                            } else if ("profesor".equals(tipoUsuario)) {
                                 // Redirige a la pantalla de usuario normal
                                 Toast.makeText(IniciarSesionActivity.this, "Bienvenido profesor", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(IniciarSesionActivity.this, hub_docentes.class));
+                            } else if ("administrador".equals(tipoUsuario)) {
+                                Toast.makeText(IniciarSesionActivity.this, "Bienvenido administrador", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(IniciarSesionActivity.this, AnuncionActivity.class));
                             }
                         }
                     }

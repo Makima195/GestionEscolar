@@ -19,7 +19,9 @@ public class HubAlumnos extends AppCompatActivity {
         Intent i = new Intent(this, AjustesActivity.class);
         startActivity(i);
     }
-    ImageButton buttonajustes, buttonhorario;
+
+    ImageButton buttonajustes, buttonhorario, buttonanuncio_general, buttondescargas;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,11 +31,21 @@ public class HubAlumnos extends AppCompatActivity {
 
         buttonajustes = findViewById(R.id.buttonajustes);
         buttonhorario = findViewById(R.id.buttonhorario);
+        buttonanuncio_general = findViewById(R.id.button_ver_anuncio_general);
+        buttondescargas = findViewById(R.id.buttondescargas);
+
 
         //hacia donde te redirigen los botones "ajustes"
         buttonajustes.setOnClickListener(v -> startActivity(new Intent(HubAlumnos.this, AjustesActivity.class)));
         //hacia donde te redirigen los botones "horarios"
         buttonhorario.setOnClickListener(v -> startActivity(new Intent(HubAlumnos.this, HorarioActivity.class)));
+        //hacia donde te redirigen los botones "anuncios"
+        buttonanuncio_general.setOnClickListener(v -> startActivity(new Intent(HubAlumnos.this, VerAnuncios.class)));
+        //hacia donde te redirigen los botones "descargas"
+        buttondescargas.setOnClickListener(v -> startActivity(new Intent(HubAlumnos.this, Certificados.class)));
+
+
+
     }
 
     @Override
@@ -41,6 +53,7 @@ public class HubAlumnos extends AppCompatActivity {
         // Puedes dejar este método vacío o agregar un mensaje de advertencia
         // o realizar cualquier otra acción que desees.
         // Esto evitará que el usuario navegue hacia atrás.
+
     }
 
 }

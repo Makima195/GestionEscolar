@@ -40,7 +40,11 @@ public class HorarioActivity extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseStorage storage = FirebaseStorage.getInstance();
 
-    TextView lunesbloque1, lunesbloque2, lunesbloque3;
+    TextView lunesbloque1, lunesbloque2, lunesbloque3, lunesbloque4, lunesbloque5, lunesbloque6;
+    TextView martesbloque1, martesbloque2, martesbloque3, martesbloque4, martesbloque5, martesbloque6;
+    TextView miercolesbloque1, miercolesbloque2, miercolesbloque3, miercolesbloque4, miercolesbloque5, miercolesbloque6;
+    TextView juevesbloque1, juevesbloque2, juevesbloque3, juevesbloque4, juevesbloque5, juevesbloque6;
+    TextView viernesbloque1, viernesbloque2, viernesbloque3, viernesbloque4, viernesbloque5, viernesbloque6;
 
 
 
@@ -56,6 +60,39 @@ public class HorarioActivity extends AppCompatActivity {
         lunesbloque1 = findViewById(R.id.lunesbloque1);
         lunesbloque2 = findViewById(R.id.lunesbloque2);
         lunesbloque3 = findViewById(R.id.lunesbloque3);
+
+        lunesbloque4 = findViewById(R.id.lunesbloque4);
+        lunesbloque5 = findViewById(R.id.lunesbloque5);
+        lunesbloque6 = findViewById(R.id.lunesbloque6);
+
+        martesbloque1 = findViewById(R.id.martesbloque1);
+        martesbloque2 = findViewById(R.id.martesbloque2);
+        martesbloque3 = findViewById(R.id.martesbloque3);
+        martesbloque4 = findViewById(R.id.martesbloque4);
+        martesbloque5 = findViewById(R.id.martesbloque5);
+        martesbloque6 = findViewById(R.id.martesbloque6);
+
+        miercolesbloque1 = findViewById(R.id.miercolesbloque1);
+        miercolesbloque2 = findViewById(R.id.miercolesbloque2);
+        miercolesbloque3 = findViewById(R.id.miercolesbloque3);
+        miercolesbloque4 = findViewById(R.id.miercolesbloque4);
+        miercolesbloque5 = findViewById(R.id.miercolesbloque5);
+        miercolesbloque6 = findViewById(R.id.miercolesbloque6);
+
+        juevesbloque1 = findViewById(R.id.juevesbloque1);
+        juevesbloque2 = findViewById(R.id.juevesbloque2);
+        juevesbloque3 = findViewById(R.id.juevesbloque3);
+        juevesbloque4 = findViewById(R.id.juevesbloque4);
+        juevesbloque5 = findViewById(R.id.juevesbloque5);
+        juevesbloque6 = findViewById(R.id.juevesbloque6);
+
+        viernesbloque1 = findViewById(R.id.viernesbloque1);
+        viernesbloque2 = findViewById(R.id.viernesbloque2);
+        viernesbloque3 = findViewById(R.id.viernesbloque3);
+        viernesbloque4 = findViewById(R.id.viernesbloque4);
+        viernesbloque5 = findViewById(R.id.viernesbloque5);
+        viernesbloque6 = findViewById(R.id.viernesbloque6);
+
 
         buttonback.setOnClickListener(new View.OnClickListener() {
 
@@ -80,13 +117,44 @@ public class HorarioActivity extends AppCompatActivity {
                                 .get()
                                 .addOnSuccessListener(documentSnapshotHorario -> {
                                     if (documentSnapshotHorario.exists()) {
-                                        lunesbloque1.setText(documentSnapshotHorario.getString("bloque1"));
-                                        lunesbloque2.setText(documentSnapshotHorario.getString("bloque2"));
-                                        lunesbloque3.setText(documentSnapshotHorario.getString("bloque3"));
-                                        //EJEMPLO DE OTROS DIAS TODO PUEDE ESTAR JUNTO
-                                        //martesbloque2.setText(documentSnapshotHorario.getString("bloque2"));
-                                        // Puedes continuar con el resto de los bloques o datos aquí.
-                                    }
+
+                                        lunesbloque1.setText(documentSnapshotHorario.getString("lunesbloque1"));
+                                        lunesbloque2.setText(documentSnapshotHorario.getString("lunesbloque2"));
+                                        lunesbloque3.setText(documentSnapshotHorario.getString("lunesbloque3"));
+                                        lunesbloque4.setText(documentSnapshotHorario.getString("lunesbloque4"));
+                                        lunesbloque5.setText(documentSnapshotHorario.getString("lunesbloque5"));
+                                        lunesbloque6.setText(documentSnapshotHorario.getString("lunesbloque6"));
+
+                                        martesbloque1.setText(documentSnapshotHorario.getString("martesbloque1"));
+                                        martesbloque2.setText(documentSnapshotHorario.getString("martesbloque2"));
+                                        martesbloque3.setText(documentSnapshotHorario.getString("martesbloque3"));
+                                        martesbloque4.setText(documentSnapshotHorario.getString("martesbloque4"));
+                                        martesbloque5.setText(documentSnapshotHorario.getString("martesbloque5"));
+                                        martesbloque6.setText(documentSnapshotHorario.getString("martesbloque6"));
+
+                                        miercolesbloque1.setText(documentSnapshotHorario.getString("miercolesbloque1"));
+                                        miercolesbloque2.setText(documentSnapshotHorario.getString("miercolesbloque2"));
+                                        miercolesbloque3.setText(documentSnapshotHorario.getString("miercolesbloque3"));
+                                        miercolesbloque4.setText(documentSnapshotHorario.getString("miercolesbloque4"));
+                                        miercolesbloque5.setText(documentSnapshotHorario.getString("miercolesbloque5"));
+                                        miercolesbloque6.setText(documentSnapshotHorario.getString("miercolesbloque6"));
+
+                                        juevesbloque1.setText(documentSnapshotHorario.getString("juevesbloque1"));
+                                        juevesbloque2.setText(documentSnapshotHorario.getString("juevesbloque2"));
+                                        juevesbloque3.setText(documentSnapshotHorario.getString("juevesbloque3"));
+                                        juevesbloque4.setText(documentSnapshotHorario.getString("juevesbloque4"));
+                                        juevesbloque5.setText(documentSnapshotHorario.getString("juevesbloque5"));
+                                        juevesbloque6.setText(documentSnapshotHorario.getString("juevesbloque6"));
+
+                                        viernesbloque1.setText(documentSnapshotHorario.getString("viernesbloque1"));
+                                        viernesbloque2.setText(documentSnapshotHorario.getString("viernesbloque2"));
+                                        viernesbloque3.setText(documentSnapshotHorario.getString("viernesbloque3"));
+                                        viernesbloque4.setText(documentSnapshotHorario.getString("viernesbloque4"));
+                                        viernesbloque5.setText(documentSnapshotHorario.getString("viernesbloque5"));
+                                        viernesbloque6.setText(documentSnapshotHorario.getString("viernesbloque6"));
+
+                                      
+                                  }
                                 });
                     }
                 });

@@ -3,7 +3,6 @@ package com.gymicompany.gestionescolar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,34 +18,34 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class redactarAviso extends AppCompatActivity {
-    Button btn_subir_aviso;
-    EditText titulo, aviso;
+
+public class CrearAnuncio extends AppCompatActivity {
+    Button btn_crear;
+    EditText titulo_general, anuncio_crear_general;
     private FirebaseFirestore mFireStore;
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_redactar_aviso);
+        setContentView(R.layout.activity_crear_anuncio);
 
-        this.setTitle("Crear avisos");
+        this.setTitle("Crear anuncios");
         mFireStore = FirebaseFirestore.getInstance();
 
 
-        btn_subir_aviso = findViewById(R.id.btn_subir_aviso);
-        titulo = findViewById(R.id.titulo);
-        aviso = findViewById(R.id.aviso);
+        btn_crear = findViewById(R.id.btn_subir_aviso);
+        titulo_general = findViewById(R.id.titulo_general);
+        anuncio_crear_general = findViewById(R.id.anuncio_crear_general);
 
-        btn_subir_aviso.setOnClickListener(new View.OnClickListener() {
+        btn_crear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String tituloAviso = titulo.getText().toString().trim();
-                String textoAviso = aviso.getText().toString().trim();
+                String tituloAnuncio = titulo_general.getText().toString().trim();
+                String textoAnuncio = anuncio_crear_general.getText().toString().trim();
 
-                if (tituloAviso.isEmpty() || textoAviso.isEmpty()){
+                if (tituloAnuncio.isEmpty() || textoAnuncio.isEmpty()){
                     Toast.makeText(getApplicationContext(), "Ingrese correctamente los datos", Toast.LENGTH_SHORT).show();
                 }else{
-                    postAviso(tituloAviso, textoAviso);
+                    postAnuncio(tituloAnuncio, textoAnuncio);
                 }
 
             }
@@ -55,12 +54,12 @@ public class redactarAviso extends AppCompatActivity {
 
     }
 
-    private void postAviso(String tituloAviso, String textoAviso) {
+    private void postAnuncio(String tituloAnuncio, String textoAnuncio) {
         mFireStore = FirebaseFirestore.getInstance();
         Map<String, Object> map = new HashMap<>();
-        map.put("Titulo", tituloAviso);
-        map.put("Aviso", textoAviso);
-        mFireStore.collection("avisos").add(map).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+        map.put("Titulo", tituloAnuncio);
+        map.put("Anuncio", textoAnuncio);
+        mFireStore.collection("anuncios").add(map).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {
                 Toast.makeText(getApplicationContext(), "Creado exitosamente", Toast.LENGTH_SHORT).show();
@@ -69,7 +68,7 @@ public class redactarAviso extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getApplicationContext(), "Error al crear aviso", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Error al crear anuncio", Toast.LENGTH_SHORT).show();
             }
         });
     }
