@@ -13,6 +13,9 @@
         android:theme="@style/Theme.GestionEscolar"
         tools:targetApi="31">
         <activity
+            android:name=".AnuncionActivity"
+            android:exported="false" />
+        <activity
             android:name=".AnuncioGeneralAlumno"
             android:exported="false" />
         <activity
