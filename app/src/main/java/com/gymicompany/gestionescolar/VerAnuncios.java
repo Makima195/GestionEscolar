@@ -17,7 +17,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
-public class VerAnuncio extends AppCompatActivity {
+public class VerAnuncios extends AppCompatActivity {
     TextView Anuncio;
     TextView Titulo;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -30,7 +30,7 @@ public class VerAnuncio extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ver_anuncio);
+        setContentView(R.layout.activity_ver_anuncios);
 
         Anuncio = findViewById(R.id.Anuncio_ver);
         Titulo = findViewById(R.id.Titulo_ver);
@@ -42,37 +42,37 @@ public class VerAnuncio extends AppCompatActivity {
 
     }
 
-        public void Prueba(){
+    public void Prueba(){
 
-            collectionRef.orderBy("anuncios", Query.Direction.DESCENDING)
-                    .limit(1)
-                    .get()
-                    .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                        @Override
-                        public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                            if (!queryDocumentSnapshots.isEmpty()) {
-                                DocumentSnapshot document = queryDocumentSnapshots.getDocuments().get(0);
-                                // Accede a los campos que deseas mostrar en los TextViews
-                                String campo1 = document.getString("Anuncio");
-                                String campo2 = document.getString("Titulo");
+        collectionRef.orderBy("anuncios", Query.Direction.DESCENDING)
+                .limit(1)
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        if (!queryDocumentSnapshots.isEmpty()) {
+                            DocumentSnapshot document = queryDocumentSnapshots.getDocuments().get(0);
+                            /// Accede a los campos que deseas mostrar en los TextViews
+                            String campo1 = document.getString("Anuncio");
+                            String campo2 = document.getString("Titulo");
 
-                                // Actualiza los TextViews con los valores de los campos
-                                Anuncio.setText(campo1);
-                                Titulo.setText(campo2);
-                            } else {
-                                // La colección está vacía, no hay documentos
-                                Log.d("TAG", "La colección está vacía");
-                            }
+                            // Actualiza los TextViews con los valores de los campos
+                            Anuncio.setText(campo1);
+                            Titulo.setText(campo2);
+                        } else {
+                            // La colección está vacía, no hay documentos
+                            Log.d("TAG", "La colección está vacía");
                         }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            // Manejar errores de lectura
-                            Log.e("TAG", "Error al leer el documento", e);
-                        }
-                    });
-        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Manejar errores de lectura
+                        Log.e("TAG", "Error al leer el documento", e);
+                    }
+                });
+    }
 
 
      /* private void CargarAnuncio() {

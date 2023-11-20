@@ -13,14 +13,14 @@ public class AnuncionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_anuncios);
+        setContentView(R.layout.activity_anuncion);
 
         btn_ir_crear_notas = findViewById(R.id.btn_ir_crear_anuncios);
 
         btn_ir_crear_notas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AnuncionActivity.this, crear_anuncios.class));
+                startActivity(new Intent(AnuncionActivity.this, CrearAnuncio.class));
             }
         });
     }
