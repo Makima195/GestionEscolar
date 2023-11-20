@@ -18,9 +18,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+
 public class crear_anuncios extends AppCompatActivity {
     Button btn_crear;
-    EditText titulo, anuncio;
+    EditText titulo_general, anuncio_crear_general;
     private FirebaseFirestore mFireStore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,14 +33,14 @@ public class crear_anuncios extends AppCompatActivity {
 
 
         btn_crear = findViewById(R.id.btn_subir_aviso);
-        titulo = findViewById(R.id.titulo);
-        anuncio = findViewById(R.id.aviso);
+        titulo_general = findViewById(R.id.titulo_general);
+        anuncio_crear_general = findViewById(R.id.anuncio_crear_general);
 
         btn_crear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String tituloAnuncio = titulo.getText().toString().trim();
-                String textoAnuncio = anuncio.getText().toString().trim();
+                String tituloAnuncio = titulo_general.getText().toString().trim();
+                String textoAnuncio = anuncio_crear_general.getText().toString().trim();
 
                 if (tituloAnuncio.isEmpty() || textoAnuncio.isEmpty()){
                     Toast.makeText(getApplicationContext(), "Ingrese correctamente los datos", Toast.LENGTH_SHORT).show();

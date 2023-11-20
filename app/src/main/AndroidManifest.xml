@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.INTERNET" />
-
 
     <application
         android:allowBackup="true"
@@ -15,8 +13,20 @@
         android:theme="@style/Theme.GestionEscolar"
         tools:targetApi="31">
         <activity
-            android:name=".Certificados"
-            android:exported="true" />
+            android:name=".AnuncioGeneralAlumno"
+            android:exported="false" />
+        <activity
+            android:name=".AnuncioGeneral"
+            android:exported="false" />
+        <activity
+            android:name=".HorarioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AjustesProfe"
+            android:exported="false" />
+        <activity
+            android:name=".hub_docentes"
+            android:exported="false" />
         <activity
             android:name=".AjustesActivity"
             android:exported="false" />
@@ -24,20 +34,11 @@
             android:name=".HubAlumnos"
             android:exported="false" />
         <activity
-            android:name=".HubDocente"
-            android:exported="true" />
-        <activity
             android:name=".register"
             android:exported="false" />
         <activity
-            android:name=".redactarAviso"
-            android:exported="true" />
-        <activity
             android:name=".IniciarSesionActivity"
             android:exported="false" />
-        <activity
-            android:name=".anuncios"
-            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
@@ -51,6 +52,5 @@
             </intent-filter>
         </activity>
     </application>
-
 
 </manifest>
