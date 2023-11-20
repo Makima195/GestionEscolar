@@ -90,6 +90,7 @@ public class IniciarSesionActivity extends AppCompatActivity {
                 }
             }
         }).addOnFailureListener(e -> Toast.makeText(IniciarSesionActivity.this, "error de sesion", Toast.LENGTH_SHORT).show());
+
     }
 
     private void redirigirUsuario() {
@@ -120,4 +121,5 @@ public class IniciarSesionActivity extends AppCompatActivity {
                     }
                 });
     }
+
 }

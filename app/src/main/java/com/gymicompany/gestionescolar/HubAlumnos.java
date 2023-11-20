@@ -19,7 +19,9 @@ public class HubAlumnos extends AppCompatActivity {
         Intent i = new Intent(this, AjustesActivity.class);
         startActivity(i);
     }
+
     ImageButton buttonajustes, buttonhorario, buttonanuncio_general, buttondescargas;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +43,7 @@ public class HubAlumnos extends AppCompatActivity {
         buttonanuncio_general.setOnClickListener(v -> startActivity(new Intent(HubAlumnos.this, VerAnuncios.class)));
         //hacia donde te redirigen los botones "descargas"
         buttondescargas.setOnClickListener(v -> startActivity(new Intent(HubAlumnos.this, Certificados.class)));
+
 
 
     }

@@ -60,6 +60,7 @@ public class HorarioActivity extends AppCompatActivity {
         lunesbloque1 = findViewById(R.id.lunesbloque1);
         lunesbloque2 = findViewById(R.id.lunesbloque2);
         lunesbloque3 = findViewById(R.id.lunesbloque3);
+
         lunesbloque4 = findViewById(R.id.lunesbloque4);
         lunesbloque5 = findViewById(R.id.lunesbloque5);
         lunesbloque6 = findViewById(R.id.lunesbloque6);
@@ -92,6 +93,7 @@ public class HorarioActivity extends AppCompatActivity {
         viernesbloque5 = findViewById(R.id.viernesbloque5);
         viernesbloque6 = findViewById(R.id.viernesbloque6);
 
+
         buttonback.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -115,6 +117,7 @@ public class HorarioActivity extends AppCompatActivity {
                                 .get()
                                 .addOnSuccessListener(documentSnapshotHorario -> {
                                     if (documentSnapshotHorario.exists()) {
+
                                         lunesbloque1.setText(documentSnapshotHorario.getString("lunesbloque1"));
                                         lunesbloque2.setText(documentSnapshotHorario.getString("lunesbloque2"));
                                         lunesbloque3.setText(documentSnapshotHorario.getString("lunesbloque3"));
@@ -150,12 +153,8 @@ public class HorarioActivity extends AppCompatActivity {
                                         viernesbloque5.setText(documentSnapshotHorario.getString("viernesbloque5"));
                                         viernesbloque6.setText(documentSnapshotHorario.getString("viernesbloque6"));
 
-
-
-                                        //EJEMPLO DE OTROS DIAS TODO PUEDE ESTAR JUNTO
-                                        //martesbloque2.setText(documentSnapshotHorario.getString("bloque2"));
-                                        // Puedes continuar con el resto de los bloques o datos aquí.
-                                    }
+                                      
+                                  }
                                 });
                     }
                 });

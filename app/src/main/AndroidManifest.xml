@@ -16,6 +16,19 @@
             android:name=".VerAnuncios"
             android:exported="false" />
         <activity
+            android:name=".HorarioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AjustesProfe"
+            android:exported="false" />
+        <activity
+            android:name=".hub_docentes"
+            android:exported="false" />
+        <activity
+            android:name=".AjustesActivity"
+
+            android:exported="false" />
+        <activity
             android:name=".CrearAnuncio"
             android:exported="false" />
         <activity
