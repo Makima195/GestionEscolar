@@ -13,6 +13,12 @@
         android:theme="@style/Theme.GestionEscolar"
         tools:targetApi="31">
         <activity
+            android:name=".notas"
+            android:exported="false" />
+        <activity
+            android:name=".ver_avisos"
+            android:exported="false" />
+        <activity
             android:name=".HorarioActivity"
             android:exported="false" />
         <activity

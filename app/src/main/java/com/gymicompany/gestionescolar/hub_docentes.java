@@ -13,7 +13,7 @@ public class hub_docentes extends AppCompatActivity {
         Intent i = new Intent(this, AjustesActivity.class);
         startActivity(i);
     }
-    ImageButton buttonajustes, subir_avisos;
+    ImageButton buttonajustes, subir_avisos, subir_notas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,7 @@ public class hub_docentes extends AppCompatActivity {
 
         buttonajustes = findViewById(R.id.ajustes);
         subir_avisos = findViewById(R.id.subir_avisos);
+        subir_notas = findViewById(R.id.subir_notas);
 
         buttonajustes.setOnClickListener(new View.OnClickListener() {
 
@@ -33,6 +34,11 @@ public class hub_docentes extends AppCompatActivity {
 
             public void onClick(View v) {
                 startActivity(new Intent(hub_docentes.this, redactarAviso.class));
+            }
+        });
+        subir_notas.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startActivity(new Intent(hub_docentes.this, notas.class));
             }
         });
 

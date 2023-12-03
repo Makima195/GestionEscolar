@@ -19,7 +19,7 @@ public class HubAlumnos extends AppCompatActivity {
         Intent i = new Intent(this, AjustesActivity.class);
         startActivity(i);
     }
-    ImageButton buttonajustes, buttonhorario;
+    ImageButton buttonajustes, buttonhorario, buttonVerAvisos;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,11 +29,13 @@ public class HubAlumnos extends AppCompatActivity {
 
         buttonajustes = findViewById(R.id.buttonajustes);
         buttonhorario = findViewById(R.id.buttonhorario);
+        buttonVerAvisos = findViewById(R.id.buttonVerAvisos);
 
         //hacia donde te redirigen los botones "ajustes"
         buttonajustes.setOnClickListener(v -> startActivity(new Intent(HubAlumnos.this, AjustesActivity.class)));
         //hacia donde te redirigen los botones "horarios"
         buttonhorario.setOnClickListener(v -> startActivity(new Intent(HubAlumnos.this, HorarioActivity.class)));
+        buttonVerAvisos.setOnClickListener(v -> startActivity(new Intent(HubAlumnos.this, ver_avisos.class)));
     }
 
     @Override

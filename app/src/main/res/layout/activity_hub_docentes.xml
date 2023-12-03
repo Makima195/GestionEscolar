@@ -35,7 +35,7 @@
         android:contentDescription="Botón acceder a horario"/>
 
     <ImageButton
-        android:id="@+id/notas"
+        android:id="@+id/subir_notas"
         android:layout_width="105dp"
         android:layout_height="105dp"
         android:background="@drawable/fondo_bt"
