@@ -34,9 +34,6 @@
             android:name=".HubAlumnos"
             android:exported="false" />
         <activity
-            android:name=".HubDocente"
-            android:exported="true" />
-        <activity
             android:name=".register"
             android:exported="false" />
         <activity
