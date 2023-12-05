@@ -163,7 +163,7 @@ public class register extends AppCompatActivity {
     }
 
 
-    private void publicarMensajeATopico(String nombre, Mqtt3AsyncClient client, String mensaje) {
+    private void publicarMensajeATopico(String name, Mqtt3AsyncClient client, String mensaje) {
         String topicUsuario = "RegisterUsuarios";
 
         client.publishWith()
