@@ -22,6 +22,7 @@
         android:layout_width="105dp"
         android:layout_height="105dp"
         android:background="@drawable/fondo_bt"
+        android:contentDescription="Botón acceder a horario"
         android:scaleType="fitCenter"
         android:scaleX="1"
         android:scaleY="1"
@@ -31,8 +32,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.311"
-        app:srcCompat="@drawable/horarios"
-        android:contentDescription="Botón acceder a horario"/>
+        app:srcCompat="@drawable/horarios" />
 
     <ImageButton
         android:id="@+id/notas"
