@@ -17,6 +17,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 
+import com.hivemq.client.mqtt.MqttClient;
+import com.hivemq.client.mqtt.mqtt3.Mqtt3AsyncClient;
+import android.util.Log;
+
 
 
 public class IniciarSesionActivity extends AppCompatActivity {
@@ -53,7 +57,10 @@ public class IniciarSesionActivity extends AppCompatActivity {
         buttonvolver = findViewById(R.id.button_atras);
         user=FirebaseAuth.getInstance().getCurrentUser();
 
+
         buttonIniciarSesion.setOnClickListener(new View.OnClickListener() {
+
+
 
             public void onClick(View v) {
                 String username = correoeditText.getText().toString();
@@ -84,6 +91,7 @@ public class IniciarSesionActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     redirigirUsuario();
+                    iniciarConexionMQTT(String.valueOf(correoeditText));
                 }
                 else{
                     Toast.makeText(IniciarSesionActivity.this, "Error", Toast.LENGTH_SHORT).show();
@@ -118,6 +126,82 @@ public class IniciarSesionActivity extends AppCompatActivity {
                                 startActivity(new Intent(IniciarSesionActivity.this, AnuncionActivity.class));
                             }
                         }
+                    }
+                });
+    }
+
+    public void iniciarConexionMQTT(String correoeditText) {
+        String clusterUrl = "8fd1d93460644ebd86917bebafc7953c.s2.eu.hivemq.cloud";
+        int port = 8883;
+        String username = "Sarpefh";
+        String password = "Hairo015?";
+        String clientId = correoeditText + System.currentTimeMillis();
+        Log.e("Client ID: ", clientId);
+
+        Mqtt3AsyncClient client = MqttClient.builder()
+                .useMqttVersion3()
+                .identifier(clientId)
+                .serverHost(clusterUrl)
+                .serverPort(port)
+                .useSslWithDefaultConfig()
+                .buildAsync();
+
+        client.connectWith()
+                .simpleAuth()
+                .username(username)
+                .password(password.getBytes())
+                .applySimpleAuth()
+                .send()
+                .whenComplete((connAck, throwable) -> {
+                    if (throwable != null) {
+                        Log.v("MQTT","ERROR CONCHETUMARE");
+                    } else {
+                        // Configurar suscripciones o iniciar la publicación
+                        suscribirATopicoUsuarios(correoeditText, client);
+                        publicarMensajeATopico(correoeditText, client, "He Logeado con exito!");
+                    }
+                });
+
+
+
+    }
+
+    private void suscribirATopicoUsuarios(String correoeditText, Mqtt3AsyncClient client) {
+        String topicUsuarios = "TopicLogin";
+
+        client.subscribeWith()
+                .topicFilter(topicUsuarios)
+                .callback(publish -> {
+                    // Manejar los mensajes recibidos en el tópico de usuarios
+                    byte[] payload = publish.getPayloadAsBytes();
+                    String mensajeRecibido = new String(payload);
+                    Log.e("Usuario Logeado", mensajeRecibido);
+                })
+                .send()
+                .whenComplete((subAck, throwable) -> {
+                    if (throwable != null) {
+                        // Manejar el fallo de suscripción MQTT
+                    } else {
+                        // Manejar la suscripción exitosa
+                    }
+                });
+    }
+
+
+    private void publicarMensajeATopico(String correoeditText, Mqtt3AsyncClient client, String mensaje) {
+        String topicUsuario = "TopicLogin";
+
+        client.publishWith()
+                .topic(topicUsuario)
+                .payload(mensaje.getBytes())
+                .send()
+                .whenComplete((publish, throwable) -> {
+                    if (throwable != null) {
+                        // Manejar el fallo de publicación MQTT
+                        Log.e("Fallo de publicación", throwable.getMessage());
+                    } else {
+                        // Manejar la publicación exitosa, por ejemplo, registro o métricas
+                        Log.e("Publicación exitosa", "He ingresado en el topic! " + topicUsuario);
                     }
                 });
     }
