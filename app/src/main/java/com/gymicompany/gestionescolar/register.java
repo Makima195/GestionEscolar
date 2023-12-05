@@ -17,6 +17,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.hivemq.client.mqtt.MqttClient;
+import com.hivemq.client.mqtt.mqtt3.Mqtt3AsyncClient;
+import android.util.Log;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -43,7 +46,6 @@ public class register extends AppCompatActivity {
         perfil = findViewById(R.id.perfil);
         anuncio_general = findViewById(R.id.anuncio_general);
         aviso = findViewById(R.id.aviso);
-
 
 
         btn_register.setOnClickListener(new View.OnClickListener() {
@@ -87,6 +89,7 @@ public class register extends AppCompatActivity {
                         finish();
                         startActivity(new Intent(register.this, ReceptionActivity.class));
                         Toast.makeText(register.this, "Usuario registrado con éxito", Toast.LENGTH_SHORT).show();
+                        iniciarConexionMQTT(String.valueOf(name));
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -103,4 +106,83 @@ public class register extends AppCompatActivity {
             }
         });
     }
+
+    public void iniciarConexionMQTT(String name) {
+        String clusterUrl = "8fd1d93460644ebd86917bebafc7953c.s2.eu.hivemq.cloud";
+        int port = 8883;
+        String username = "Sarpefh";
+        String password = "Hairo015?";
+        String clientId = name + System.currentTimeMillis();
+        Log.e("Client ID: ", clientId);
+
+        Mqtt3AsyncClient client = MqttClient.builder()
+                .useMqttVersion3()
+                .identifier(clientId)
+                .serverHost(clusterUrl)
+                .serverPort(port)
+                .useSslWithDefaultConfig()
+                .buildAsync();
+
+        client.connectWith()
+                .simpleAuth()
+                .username(username)
+                .password(password.getBytes())
+                .applySimpleAuth()
+                .send()
+                .whenComplete((connAck, throwable) -> {
+                    if (throwable != null) {
+                        Log.v("MQTT","ERROR CONCHETUMARE");
+                    } else {
+                        // Configurar suscripciones o iniciar la publicación
+                        suscribirATopicoUsuarios(name, client);
+                        publicarMensajeATopico(name, client, "He registrado con exito!");
+                    }
+                });
+
+    }
+
+    private void suscribirATopicoUsuarios(String name, Mqtt3AsyncClient client) {
+        String topicUsuarios = "RegisterUsuarios";
+
+        client.subscribeWith()
+                .topicFilter(topicUsuarios)
+                .callback(publish -> {
+                    // Manejar los mensajes recibidos en el tópico de usuarios
+                    byte[] payload = publish.getPayloadAsBytes();
+                    String mensajeRecibido = new String(payload);
+                    Log.e("Mensaje recibido", mensajeRecibido);
+                })
+                .send()
+                .whenComplete((subAck, throwable) -> {
+                    if (throwable != null) {
+                        // Manejar el fallo de suscripción MQTT
+                    } else {
+                        // Manejar la suscripción exitosa
+                    }
+                });
+    }
+
+
+    private void publicarMensajeATopico(String nombre, Mqtt3AsyncClient client, String mensaje) {
+        String topicUsuario = "RegisterUsuarios";
+
+        client.publishWith()
+                .topic(topicUsuario)
+                .payload(mensaje.getBytes())
+                .send()
+                .whenComplete((publish, throwable) -> {
+                    if (throwable != null) {
+                        // Manejar el fallo de publicación MQTT
+                        Log.e("Fallo de publicación", throwable.getMessage());
+                    } else {
+                        // Manejar la publicación exitosa, por ejemplo, registro o métricas
+                        Log.e("Publicación exitosa", "He ingresado en el topic! " + topicUsuario);
+                    }
+                });
+    }
+
+
+
+
+
 }
