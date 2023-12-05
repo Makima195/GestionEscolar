@@ -31,8 +31,8 @@
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
-        android:layout_width="312dp"
-        android:layout_height="761dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -51,6 +51,94 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
+
+                <!-- Elementos de la primera fila -->
+                <TextView
+                    android:id="@+id/texthoras"
+                    android:layout_width="120dp"
+                    android:layout_height="70dp"
+                    android:background="#000000"
+                    android:gravity="center"
+                    android:text="HORAS"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:id="@+id/texthora1"
+                    android:layout_width="120dp"
+                    android:layout_height="70dp"
+                    android:gravity="center"
+                    android:text="8:00 - 9:00"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/texthora2"
+                    android:layout_width="120dp"
+                    android:layout_height="70dp"
+                    android:gravity="center"
+                    android:text="9:00 - 10:00"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/texthora3"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:background="#355c7d"
+                    android:gravity="center"
+                    android:text="10:00 - 10:30"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:id="@+id/texthora4"
+                    android:layout_width="120dp"
+                    android:layout_height="70dp"
+                    android:gravity="center"
+                    android:text="10:30 - 11:30"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/texthora5"
+                    android:layout_width="120dp"
+                    android:layout_height="70dp"
+                    android:gravity="center"
+                    android:text="11:30 - 12:30"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/texthora6"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:background="#355c7d"
+                    android:gravity="center"
+                    android:text="12:30 - 2:00"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:id="@+id/texthora7"
+                    android:layout_width="120dp"
+                    android:layout_height="70dp"
+                    android:gravity="center"
+                    android:text="2:00 - 3:00"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/texthora8"
+                    android:layout_width="120dp"
+                    android:layout_height="70dp"
+                    android:gravity="center"
+                    android:text="3:00 - 4:00"
+                    android:textColor="#000000" />
+
+                <!-- Puedes agregar más elementos a la primera fila según sea necesario -->
+
+            </LinearLayout>
+
+            <!-- Primer LinearLayout (fila) -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
 
                 <!-- Elementos de la primera fila -->
                 <TextView
@@ -319,6 +407,7 @@
                 android:orientation="vertical">
 
                 <!-- Elementos de la segunda fila -->
+
                 <TextView
                     android:id="@+id/textjueves"
                     android:layout_width="200dp"
@@ -484,118 +573,109 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <!-- Elementos de la primera fila -->
+                <TextView
+                    android:id="@+id/texthoras"
+                    android:layout_width="120dp"
+                    android:layout_height="70dp"
+                    android:background="#000000"
+                    android:gravity="center"
+                    android:text="HORAS"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:id="@+id/texthora1"
+                    android:layout_width="120dp"
+                    android:layout_height="70dp"
+                    android:gravity="center"
+                    android:text="8:00 - 9:00"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/texthora2"
+                    android:layout_width="120dp"
+                    android:layout_height="70dp"
+                    android:gravity="center"
+                    android:text="9:00 - 10:00"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/texthora3"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:background="#355c7d"
+                    android:gravity="center"
+                    android:text="10:00 - 10:30"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:id="@+id/texthora4"
+                    android:layout_width="120dp"
+                    android:layout_height="70dp"
+                    android:gravity="center"
+                    android:text="10:30 - 11:30"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/texthora5"
+                    android:layout_width="120dp"
+                    android:layout_height="70dp"
+                    android:gravity="center"
+                    android:text="11:30 - 12:30"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/texthora6"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:background="#355c7d"
+                    android:gravity="center"
+                    android:text="12:30 - 2:00"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:id="@+id/texthora7"
+                    android:layout_width="120dp"
+                    android:layout_height="70dp"
+                    android:gravity="center"
+                    android:text="2:00 - 3:00"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/texthora8"
+                    android:layout_width="120dp"
+                    android:layout_height="70dp"
+                    android:gravity="center"
+                    android:text="3:00 - 4:00"
+                    android:textColor="#000000" />
+
+                <!-- Puedes agregar más elementos a la primera fila según sea necesario -->
+
+            </LinearLayout>
+
         </LinearLayout>
     </HorizontalScrollView>
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="174dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:gravity="center"
         android:text="HORARIO"
         android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
         app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.367"
+        app:layout_constraintStart_toEndOf="@+id/buttonback"
         app:layout_constraintTop_toTopOf="@+id/view"
+        app:layout_constraintVertical_bias="0.484"
         tools:text="HORARIO" />
-
-    <View
-        android:id="@+id/view4"
-        android:layout_width="100dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="74dp"
-        android:background="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="24dp"
-        android:text="8:00 - 9:00"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view4" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="48dp"
-        android:text="9:00 - 10:00"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="32dp"
-        android:text="10:00-10:30"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="34dp"
-        android:text="10:30-11:30"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="50dp"
-        android:text="11:30 - 12:30"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="34dp"
-        android:text="12:30 - 2:00"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="30dp"
-        android:text="2:00 - 3:00"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="50dp"
-        android:text="3:00 - 4:00"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
