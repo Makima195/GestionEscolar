@@ -40,7 +40,7 @@ public class HubAlumnos extends AppCompatActivity {
         //hacia donde te redirigen los botones "horarios"
         buttonhorario.setOnClickListener(v -> startActivity(new Intent(HubAlumnos.this, HorarioActivity.class)));
         //hacia donde te redirigen los botones "anuncios"
-        buttonanuncio_general.setOnClickListener(v -> startActivity(new Intent(HubAlumnos.this, VerAnuncios.class)));
+        buttonanuncio_general.setOnClickListener(v -> startActivity(new Intent(HubAlumnos.this, VerAnuncio.class)));
         //hacia donde te redirigen los botones "descargas"
         buttondescargas.setOnClickListener(v -> startActivity(new Intent(HubAlumnos.this, Certificados.class)));
 
