@@ -20,6 +20,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import com.hivemq.client.mqtt.MqttClient;
+import com.hivemq.client.mqtt.mqtt3.Mqtt3AsyncClient;
+import android.util.Log;
 
 
 public class register extends AppCompatActivity {
@@ -85,7 +88,7 @@ public class register extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void unused) {
                         finish();
-                        startActivity(new Intent(register.this, ReceptionActivity.class));
+                        startActivity(new Intent(register.this, IniciarSesionActivity.class));
                         Toast.makeText(register.this, "Usuario registrado con éxito", Toast.LENGTH_SHORT).show();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
@@ -102,5 +105,79 @@ public class register extends AppCompatActivity {
                 Toast.makeText(register.this, "Error al registrar", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void iniciarConexionMQTT(String nombre) {
+        String clusterUrl = "8fd1d93460644ebd86917bebafc7953c.s2.eu.hivemq.cloud";
+        int port = 8883;
+        String username = "Sarpefh";
+        String password = "Hairo015?";
+        String clientId = nombre + System.currentTimeMillis();
+        Log.e("Client ID: ", clientId);
+
+        Mqtt3AsyncClient client = MqttClient.builder()
+                .useMqttVersion3()
+                .identifier(clientId)
+                .serverHost(clusterUrl)
+                .serverPort(port)
+                .useSslWithDefaultConfig()
+                .buildAsync();
+
+        client.connectWith()
+                .simpleAuth()
+                .username(username)
+                .password(password.getBytes())
+                .applySimpleAuth()
+                .send()
+                .whenComplete((connAck, throwable) -> {
+                    if (throwable != null) {
+                        Log.v("MQTT","ERROR CONCHETUMARE");
+                    } else {
+                        // Configurar suscripciones o iniciar la publicación
+                        suscribirATopicoUsuarios(nombre, client);
+                        publicarMensajeATopico(nombre, client, "He registrado con exito!");
+                    }
+                });
+
+    }
+
+    private void suscribirATopicoUsuarios(String nombre, Mqtt3AsyncClient client) {
+        String topicUsuarios = "RegisterUsuarios";
+
+        client.subscribeWith()
+                .topicFilter(topicUsuarios)
+                .callback(publish -> {
+                    // Manejar los mensajes recibidos en el tópico de usuarios
+                    byte[] payload = publish.getPayloadAsBytes();
+                    String mensajeRecibido = new String(payload);
+                    Log.e("Mensaje recibido", mensajeRecibido);
+                })
+                .send()
+                .whenComplete((subAck, throwable) -> {
+                    if (throwable != null) {
+                        // Manejar el fallo de suscripción MQTT
+                    } else {
+                        // Manejar la suscripción exitosa
+                    }
+                });
+    }
+
+
+    private void publicarMensajeATopico(String name, Mqtt3AsyncClient client, String mensaje) {
+        String topicUsuario = "RegisterUsuarios";
+
+        client.publishWith()
+                .topic(topicUsuario)
+                .payload(mensaje.getBytes())
+                .send()
+                .whenComplete((publish, throwable) -> {
+                    if (throwable != null) {
+                        // Manejar el fallo de publicación MQTT
+                        Log.e("Fallo de publicación", throwable.getMessage());
+                    } else {
+                        // Manejar la publicación exitosa, por ejemplo, registro o métricas
+                        Log.e("Publicación exitosa", "He ingresado en el topic! " + topicUsuario);
+                    }
+                });
     }
 }

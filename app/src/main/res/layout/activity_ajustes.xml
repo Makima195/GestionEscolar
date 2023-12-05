@@ -24,24 +24,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/fondoapp2"
-        android:visibility="invisible" />
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/fondoapp2" />
 
     <Button
         android:id="@+id/buttoncerrarsesion"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_width="320dp"
+        android:layout_height="45dp"
         android:background="@drawable/boton_redondo"
         android:text="Cerrar Sesion"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/fondoapp1"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.831" />
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:layout_constraintVertical_bias="0.276" />
 
     <View
         android:id="@+id/view"
@@ -71,7 +74,7 @@
         android:layout_height="40dp"
         android:layout_marginBottom="64dp"
         android:gravity="center"
-        android:text="VER 0.08"
+        android:text="VER 1.0.2"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#ffffff"
         android:textSize="18sp"
@@ -85,6 +88,7 @@
         android:id="@+id/buttoncambiarfondo"
         android:layout_width="320dp"
         android:layout_height="45dp"
+        android:layout_marginBottom="4dp"
         android:background="@drawable/boton_real_redondo"
         android:text="CAMBIAR FONDO"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -93,6 +97,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.158" />
+
+    <Button
+        android:id="@+id/buttondeath"
+        android:layout_width="320dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/boton_redondo"
+        android:text="Borrar Cuenta"
+        app:layout_constraintBottom_toTopOf="@+id/buttoncerrarsesion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttoncambiarfondo"
+        app:layout_constraintVertical_bias="0.364" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

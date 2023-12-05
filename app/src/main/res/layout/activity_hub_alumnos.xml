@@ -90,7 +90,7 @@
         tools:src="@drawable/baseline_person_outline_24" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/buttondescargas"
         android:layout_width="132dp"
         android:layout_height="138dp"
         android:background="#00000000"

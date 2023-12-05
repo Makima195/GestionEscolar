@@ -31,6 +31,10 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    packagingOptions {
+        exclude ("META-INF/INDEX.LIST")
+        exclude ("META-INF/io.netty.versions.properties")
+    }
 }
 
 dependencies {
@@ -47,4 +51,5 @@ dependencies {
     implementation("com.google.firebase:firebase-database")
     implementation("com.google.firebase:firebase-storage:20.3.0")
     implementation("com.google.firebase:firebase-firestore")
+    implementation ("com.hivemq:hivemq-mqtt-client:1.3.0")
 }

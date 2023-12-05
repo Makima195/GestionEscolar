@@ -52,7 +52,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/mitlogo" />
+        app:srcCompat="@drawable/graduate" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
