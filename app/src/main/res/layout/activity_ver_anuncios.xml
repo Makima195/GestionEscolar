@@ -4,44 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VerAnuncio">
+    tools:context=".ver_avisos">
 
     <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/imageView4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/background" />
 
-    <TextView
-        android:id="@+id/Anuncio_ver"
-        android:layout_width="331dp"
-        android:layout_height="476dp"
-        android:hint="Anuncio"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
+    <ListView
+        android:id="@+id/lista_anuncios"
+        android:layout_width="355dp"
+        android:layout_height="557dp"
+        android:background="#E19F9F"
+        android:cacheColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/Titulo_ver"
-        android:layout_width="214dp"
-        android:layout_height="20dp"
-        android:hint="Título"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.197"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.064" />
-
+        app:layout_constraintVertical_bias="0.655" />
 </androidx.constraintlayout.widget.ConstraintLayout>
